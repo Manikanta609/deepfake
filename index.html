@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 100px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #ff4757;
+            border-color: #ff4757;
+        }
+        .btn-primary:hover {
+            background-color: #ff6b81;
+            border-color: #ff6b81;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deepfake Video Detection</h1>
+        <p>Upload a video to detect if it's a deepfake.</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose Video File </label>
+                <input type="file" class="form-control-file" id="file" name="file" accept="video/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload and Analyze</button>
+        </form>
+        <footer>
+            <p>&copy; 2024 Deepfake Detection Project. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
+

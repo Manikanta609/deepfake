@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            padding: 40px;
+            margin-top: 100px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.2s;
+        }
+        .container:hover {
+            transform: scale(1.02);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+        }
+        .result-message {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .real {
+            background-color: #28a745; /* Green for real */
+        }
+        .fake {
+            background-color: #dc3545; /* Red for fake */
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+        .btn-primary {
+            background-color: #ff4757;
+            border-color: #ff4757;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #ff6b81;
+            border-color: #ff6b81;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deepfake Detection Result</h1>
+        <p>Here are the results of your video analysis:</p>
+        <div class="result-message {{ if .IsFake }}fake{{ else }}real{{ end }}">
+            {{ .Result }}!
+        </div>
+        <p>Upload another video for analysis:</p>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Choose Video File</label>
+                <input type="file" class="form-control-file" id="file" name="file" accept="video/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Upload and Analyze</button>
+        </form>
+        <footer>
+            <p>&copy; 2024 Deepfake Detection Project. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
